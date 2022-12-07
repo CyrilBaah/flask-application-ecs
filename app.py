@@ -1,3 +1,4 @@
+from microservice1 import summ2
 from flask import Flask, request
 from app_service import AppService
 import json
@@ -18,6 +19,7 @@ def tasks():
 @app.route('/api/task', methods=['POST'])
 def create_task():
     request_data = request.get_json()
+    print(type(request_data), request_data, summ2(request_data["x"], request_data["y"]))
     task = request_data['task']
     return appService.create_task(task)
 
