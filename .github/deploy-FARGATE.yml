@@ -30,7 +30,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: api-server
+        ECR_REPOSITORY: python-ecs
         # IMAGE_TAG: ${{ github.sha }}
         IMAGE_TAG: latest
 
