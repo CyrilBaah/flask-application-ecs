@@ -24,11 +24,13 @@ def create_task():
 
     task = request_data['task']
     if task == "summ":
-        result = request_data['task'], request_data, summ2(request_data["x"], request_data["y"])
-        return jsonify(result)
+        # result = request_data['task'], request_data, summ2(request_data["x"], request_data["y"])
+        result = summ2(request_data["x"], request_data["y"])
+        return jsonify({ "response": request_data, "result" : result })
     elif task == "prodd":
-        result = request_data['task'], request_data, prod2(request_data["x"], request_data["y"])
-        return jsonify(result)
+        # result = request_data['task'], request_data, prod2(request_data["x"], request_data["y"])
+        result = prod2(request_data["x"], request_data["y"])
+        return jsonify({ "response": request_data, "result" : result })
     return appService.create_task(task)
 
 
