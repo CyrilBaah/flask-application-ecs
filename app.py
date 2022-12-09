@@ -2,6 +2,7 @@ from microservice1 import summ2, prod2
 from flask import Flask, request
 from app_service import AppService
 import json
+from flask import jsonify
 
 app = Flask(__name__)
 appService = AppService()
@@ -23,9 +24,11 @@ def create_task():
 
     task = request_data['task']
     if task == "summ":
-        print(request_data['task'], request_data, summ2(request_data["x"], request_data["y"]))
+        result = request_data['task'], request_data, summ2(request_data["x"], request_data["y"])
+        return jsonify(result)
     elif task == "prodd":
-        print(request_data['task'], request_data, prod2(request_data["x"], request_data["y"]))
+        result = request_data['task'], request_data, prod2(request_data["x"], request_data["y"])
+        return jsonify(result)
     return appService.create_task(task)
 
 
