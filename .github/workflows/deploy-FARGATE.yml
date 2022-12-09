@@ -54,6 +54,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: .aws/task-definition.json
-        service: python-ecsSERVICE
+        service: python-ecsNLB
         cluster: python-ecs
         wait-for-service-stability: true
